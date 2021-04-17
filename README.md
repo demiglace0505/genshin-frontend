@@ -1,70 +1,123 @@
-# Getting Started with Create React App
+# Genshin-frontend
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+[Scaffolding the App](#scaffolding-the-app)
 
-## Available Scripts
+[Setting up Redux](#setting-up-redux)
 
-In the project directory, you can run:
+## Scaffolding the App
 
-### `npm start`
+For the initial scaffolding of the app, I created a service under ./services/characters.js for fetching the characters from the API.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+```jsx
+import axios from 'axios'
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+const baseUrl='https://api.genshin.dev'
 
-### `npm test`
+const getAllCharacters = async () => {
+  const res = await axios.get(`${baseUrl}/characters`)
+  console.log('getAllCharacters', res)
+  return res.data
+}
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+export default {
+  getAllCharacters
+}
+```
 
-### `npm run build`
+The app's functionality can be tested with the following:
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+```jsx
+  const [characters, setCharacters] = useState([])
+  const fetchCharacters = async () => {
+    try {
+      const chars = await characterService.getAllCharacters()
+      // console.log('response object', res)
+      setCharacters(chars)
+    } catch (e) {
+      console.log(e)
+    }
+  }
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+  useEffect(() => {
+    fetchCharacters()
+  }, [])
+  console.log(characters)
+```
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+## Setting up Redux
 
-### `npm run eject`
+redux, react-redux,redux-thunk, 
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+dev dependencies: redux-devtools-extension
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+#### initial boilerplate:
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+##### store.js
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+```jsx
+import { createStore, combineReducers, applyMiddleware } from 'redux'
+import thunk from 'redux-thunk'
+import { composeWithDevTools } from 'redux-devtools-extension'
 
-## Learn More
+import characterReducer from './reducers/characterReducer.js'
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+const reducer = combineReducers({
+  characters: characterReducer,
+})
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+const store = createStore(
+  reducer,
+  composeWithDevTools(
+    applyMiddleware(thunk)
+  )
+)
 
-### Code Splitting
+export default store
+```
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+##### characterReducer.js
 
-### Analyzing the Bundle Size
+```jsx
+import characterService from '../services/characters.js'
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+const characterReducer = (state=[], action) => {
+  switch (action.type) {
+    case "INIT_CHARACTERS":
+      return action.data
+    default:
+      return state
+  }
+}
 
-### Making a Progressive Web App
+export const initializeCharacters = () => {
+  return async dispatch => {
+    const characters = await characterService.getAllCharacters()
+    dispatch({
+      type: 'INIT_CHARACTERS',
+      data: characters
+    })
+  }
+}
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+export default characterReducer
+```
 
-### Advanced Configuration
+##### index.js
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+```jsx
+import React from 'react'
+import ReactDOM from 'react-dom'
+import { Provider } from 'react-redux'
 
-### Deployment
+import App from './App.js'
+import store from './store.js'
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
 
-### `npm run build` fails to minify
+ReactDOM.render(
+  <Provider store={store}>
+    <App />
+  </Provider>,
+  document.getElementById('root')
+)
+```
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)

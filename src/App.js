@@ -1,25 +1,22 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { useEffect } from 'react'
+import { useDispatch } from 'react-redux'
 
-function App() {
+import Characters from './components/Characters.js'
+import { initializeCharacters } from './reducers/characterReducer.js'
+
+const App = () => {
+  const dispatch = useDispatch()
+  
+
+  useEffect(() => {
+    dispatch(initializeCharacters())
+  }, [dispatch]) //avoiding eslint error
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+      <Characters />
     </div>
-  );
+  )
 }
 
-export default App;
+export default App
