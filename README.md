@@ -46,11 +46,13 @@ The app's functionality can be tested with the following:
 
 ## Setting up Redux
 
-redux, react-redux,redux-thunk, 
+> Dependencies needed: redux, react-redux,redux-thunk, 
+>
+> dev dependencies: redux-devtools-extension
 
-dev dependencies: redux-devtools-extension
+In this section, I initialized rendering of characters with the use of a redux store.
 
-#### initial boilerplate:
+#### Initial boilerplate:
 
 ##### store.js
 
@@ -119,5 +121,52 @@ ReactDOM.render(
   </Provider>,
   document.getElementById('root')
 )
+```
+
+##### App.js
+
+```jsx
+import React, { useEffect } from 'react'
+import { useDispatch } from 'react-redux'
+
+import {initializeCharacters} from './reducers/characterReducer.js'
+
+const App = () => {
+  const dispatch = useDispatch()
+  useEffect(() => {
+    dispatch(initializeCharacters())
+  }, [])
+
+  return (
+    <div>
+      hello world
+    </div>
+  )
+}
+
+export default App
+```
+
+##### Characters.js
+
+```jsx
+import React from 'react'
+import { useSelector } from 'react-redux'
+
+const Characters = (props) => {
+  const characters = useSelector(state => state.characters)
+
+  return (
+    <div>
+      <ul>
+        {characters.map((c) => {
+          return <li key={c}>{c}</li>
+        })}
+      </ul>
+    </div>
+  )
+}
+
+export default Characters
 ```
 
