@@ -4,6 +4,8 @@
 
 [Setting up Redux](#setting-up-redux)
 
+[Styling backbone](#styling-backbone)
+
 ## Scaffolding the App
 
 For the initial scaffolding of the app, I created a service under ./services/characters.js for fetching the characters from the API.
@@ -11,11 +13,11 @@ For the initial scaffolding of the app, I created a service under ./services/cha
 ```jsx
 import axios from 'axios'
 
-const baseUrl='https://api.genshin.dev'
+import { URI } from '../config.js'
 
 const getAllCharacters = async () => {
-  const res = await axios.get(`${baseUrl}/characters`)
-  console.log('getAllCharacters', res)
+  const res = await axios.get(`${URI}/characters`)
+  console.log('getAllCharacters service', res)
   return res.data
 }
 
@@ -160,7 +162,7 @@ const Characters = (props) => {
     <div>
       <ul>
         {characters.map((c) => {
-          return <li key={c}>{c}</li>
+          return <Character charName={c} />
         })}
       </ul>
     </div>
@@ -169,4 +171,30 @@ const Characters = (props) => {
 
 export default Characters
 ```
+
+##### Character.js
+
+```jsx
+import React from 'react'
+
+import { URI } from '../config.js'
+
+const Character = (props) => {
+  console.log('Character')
+  return (
+    <div>
+      <img src={`${URI}/characters/${props.charName}/icon`} />
+      {props.charName}
+    </div>
+  )
+}
+
+export default Character
+```
+
+
+
+## Styling backbone
+
+For the styling framework, styled-components was the framework of choice.
 

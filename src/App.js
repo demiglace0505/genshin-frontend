@@ -6,15 +6,17 @@ import { initializeCharacters } from './reducers/characterReducer.js'
 
 const App = () => {
   const dispatch = useDispatch()
-  
+
 
   useEffect(() => {
     dispatch(initializeCharacters())
-  }, [dispatch]) //avoiding eslint error
+  }, [dispatch])
 
+
+  
   return (
     <div>
-      <Characters />
+      <Characters />  
     </div>
   )
 }
