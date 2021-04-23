@@ -6,6 +6,8 @@
 
 [Styling backbone](#styling-backbone)
 
+[Testing framework](#testing-framework)
+
 ## Scaffolding the App
 
 For the initial scaffolding of the app, I created a service under ./services/characters.js for fetching the characters from the API.
@@ -197,4 +199,49 @@ export default Character
 ## Styling backbone
 
 For the styling framework, styled-components was the framework of choice.
+
+##### Global Reset
+
+A global reset and setting 1 rem into 10px can be performed by making use of styled-component's createGlobalStyle api. I opted to include this declaration in the config.js file.
+
+```scss
+const GlobalStyle = createGlobalStyle`
+  *,
+  *::after,
+  *::before {
+    margin: 0;
+    padding: 0;
+    box-sizing: inherit;
+  }
+
+  html {
+    // defines what 1 rem is
+    //62.5/100*16 = 10px
+    font-size: 62.5%
+  } 
+
+  body {
+    box-sizing: border-box;
+    font-size: 1.6rem;
+  }
+`
+
+export {
+  URI,
+  GlobalStyle
+}
+```
+
+## Testing framework
+
+For the testing framework of the app, Cypress, an e2e testing library, was used. Alongside cypress, eslint-plugin-cypress was also installed as a dev dependency. The following was added into package.json under eslintConfig.
+
+```json
+  "eslintConfig": {
+    "extends": [
+      ...
+      "plugin:cypress/recommended"
+    ]
+  },
+```
 

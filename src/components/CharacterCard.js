@@ -19,7 +19,7 @@ const CharacterCard = (props) => {
   console.log('Character')
   return (
     <Card>
-      <img src={`${URI}/characters/${props.charName}/icon`} />
+      <img alt={`${props.charName}`} src={`${URI}/characters/${props.charName}/icon`} />
       {props.charName}
     </Card>
   )
