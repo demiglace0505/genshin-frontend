@@ -41,6 +41,7 @@
     ]
   },
   "devDependencies": {
+    "cypress": "^7.1.0",
     "redux-devtools-extension": "^2.13.9"
   }
 }
