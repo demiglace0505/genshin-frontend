@@ -4,23 +4,48 @@ import styled from 'styled-components'
 import { URI } from '../config.js'
 
 const Card = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   cursor: pointer;
-  border-radius: 30px;
+  background-color: orange;
+
+  border-radius: 10px;
   border: 2px solid palevioletred;
-  padding: 2em;
-  margin: 2em;
+  padding: 2rem;
+  margin: 1.5rem;
   transition: 0.5s all;
   :hover {
     transform: scale(1.05);
   }
 `
 
+const CharacterIcon = styled.img`
+  /* display: inline-block; */
+  background-color: #444444;
+  border-radius: 30px;
+  border: 2px solid brown;
+  width: 120px;
+`
+
+const CharacterName = styled.p`
+  @import url('https://fonts.googleapis.com/css2?family=Arima+Madurai&display=swap');
+  font-family: 'Arima Madurai', cursive;
+  width: 70%;
+  word-break: break-word;
+  text-align: center;
+  margin-top: 1rem;
+  text-transform: capitalize;
+`
+
 const CharacterCard = (props) => {
   console.log('Character')
   return (
     <Card>
-      <img alt={`${props.charName}`} src={`${URI}/characters/${props.charName}/icon`} />
-      {props.charName}
+      <CharacterIcon alt={`${props.charName}`} src={`${URI}/characters/${props.charName}/icon`} />
+      <CharacterName>
+        {props.charName}
+      </CharacterName>
     </Card>
   )
 }
