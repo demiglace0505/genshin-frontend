@@ -3,9 +3,11 @@ import thunk from 'redux-thunk'
 import { composeWithDevTools } from 'redux-devtools-extension'
 
 import characterReducer from './reducers/characterReducer.js'
+import characterSearchReducer from './reducers/characterSearchReducer.js'
 
 const reducer = combineReducers({
   characters: characterReducer,
+  search: characterSearchReducer
 })
 
 const store = createStore(

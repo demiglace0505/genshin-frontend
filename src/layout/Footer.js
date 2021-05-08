@@ -20,7 +20,7 @@ const Footer = () => {
         Close the world. txen eht nepO.
         This site is powered by the <a href="https://genshin.dev/">genshin.dev</a> API. This site 
         is not affiliated with or endorsed by miHoYo.
-        No Copyright Infringment intended. Genshin Impact is a trademark of miHoYo.
+        No Copyright Infringment intended. <a href="https://genshin.mihoyo.com/en/home">Genshin Impact</a> is a trademark of miHoYo.
       </CopyrightText>
     </FooterContainer>
   )
