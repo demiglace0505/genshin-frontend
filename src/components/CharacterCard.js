@@ -1,7 +1,9 @@
 import React from 'react'
-import styled from 'styled-components'
+import styled, {keyframes} from 'styled-components'
 
 import { URI } from '../config.js'
+import {fadeIn} from '../animations/fadeIn'
+
 
 const Card = styled.div`
   display: flex;
@@ -15,6 +17,9 @@ const Card = styled.div`
   padding: 2rem;
   margin: 1.5rem;
   transition: 0.5s all;
+
+  animation: ${fadeIn} 0.6s;
+
   :hover {
     transform: scale(1.05);
   }
