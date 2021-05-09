@@ -17,7 +17,7 @@ const Footer = () => {
   return (
     <FooterContainer>
       <CopyrightText>
-        Close the world. txen eht nepO.
+        Serialize Yourself.
         This site is powered by the <a href="https://genshin.dev/">genshin.dev</a> API. This site 
         is not affiliated with or endorsed by miHoYo.
         No Copyright Infringment intended. <a href="https://genshin.mihoyo.com/en/home">Genshin Impact</a> is a trademark of miHoYo.
