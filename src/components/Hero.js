@@ -19,7 +19,7 @@ const HeroContainer = styled.header`
   background-attachment: fixed;
   background-position: center;
   background-repeat: no-repeat;
-  background-blend-mode: darken;
+  /* background-blend-mode: darken; */
 `
 
 const HeroText = styled.p`
@@ -32,13 +32,12 @@ const HeroText = styled.p`
   font-size: 5rem;
   width: 40%;
   text-align: center;
-  text-shadow: 0 0 15px rgba(255,255,255, 1);
   transition: all .6s;
   animation: ${moveInBottom} 1s ease-out;
 
   :hover{
     transform: scale(1.1);
-    
+    text-shadow: 0 0 15px rgba(255,255,255, 1);
   }
 `
 

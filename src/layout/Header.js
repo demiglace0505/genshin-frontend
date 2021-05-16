@@ -15,7 +15,7 @@ const LogoContainer = styled.a`
 `
 
 const Logo = styled.img`
-  height: 100%;
+  height: 10vh;
 `
 
 const Header = () => {

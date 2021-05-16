@@ -1,8 +1,8 @@
 import React from 'react'
-import styled, {keyframes} from 'styled-components'
+import styled, { keyframes } from 'styled-components'
 
 import { URI } from '../config.js'
-import {fadeIn} from '../theme/animations'
+import { fadeIn } from '../theme/animations'
 
 
 const Card = styled.div`

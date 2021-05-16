@@ -6,10 +6,12 @@ import CharacterCard from './CharacterCard.js'
 import { initializeCharacters } from '../reducers/characterReducer'
 
 const CharacterGridContainer = styled.div`
-  /* width: 80%; */
+  width: 80%;
   margin: 0 auto;
   display: flex;
   flex-wrap: wrap;
+  /* display: grid; */
+  /* grid-template-columns: repeat(auto-fit, minmax(10rem, 1fr)); */
 `
 
 const Characters = (props) => {
