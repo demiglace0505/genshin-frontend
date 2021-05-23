@@ -5,25 +5,23 @@ import { GlobalStyle } from './theme/globalStyle.js'
 import Footer from './layout/Footer.js'
 import Header from './layout/Header.js'
 import Hero from './components/Hero.js'
-import Container from './layout/Container.js'
-import Characters from './components/Characters.js'
-import SearchBar from './components/SearchBar.js'
+import AppContaner from './layout/AppContainer.js'
+import CharacterSection from './components/CharacterSection.js'
 import ReviewCarousel from './components/ReviewCarousel.js'
 
 const App = () => {
 
   return (
     <div>
-      <Container>
+      <AppContaner>
         <GlobalStyle />
         <Header />
         <Hero />
         <ReviewCarousel />
-        <SearchBar />
-        <Characters />
+        <CharacterSection />
         <Footer />
 
-      </Container>
+      </AppContaner>
     </div>
   )
 }

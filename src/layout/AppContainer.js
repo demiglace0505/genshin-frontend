@@ -1,6 +1,6 @@
 import styled from 'styled-components'
 
-const Container = styled.div`
+const AppContaner = styled.div`
   /* display: grid; */
   /* grid-template-rows: [header-start] 10vh 
                       [header-end hero-start] min-content
@@ -14,4 +14,4 @@ const Container = styled.div`
 
 `
 
-export default Container
+export default AppContaner

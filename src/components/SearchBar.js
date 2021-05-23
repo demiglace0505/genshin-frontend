@@ -1,7 +1,12 @@
 import React from 'react'
 import { useDispatch, useSelector } from 'react-redux'
+import styled from 'styled-components'
 
 import { searchChange } from '../reducers/characterSearchReducer.js'
+
+const InputBox = styled.input`
+  background-color: red;
+`
 
 const SearchBar = () => {
   const dispatch = useDispatch()
@@ -15,8 +20,7 @@ const SearchBar = () => {
 
   return (
     <div>
-      filter <input onChange={handleInputChange} />
-      {searchString}
+      <InputBox onChange={handleInputChange}/>
     </div>
   )
 }
