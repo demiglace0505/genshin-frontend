@@ -6,6 +6,7 @@ import { searchChange } from '../reducers/characterSearchReducer.js'
 
 const InputBox = styled.input`
   background-color: red;
+  width: 90%;
 `
 
 const SearchBar = () => {

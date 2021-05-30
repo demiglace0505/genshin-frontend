@@ -22,13 +22,14 @@ import hero3 from '../images/hero-3.jpg'
 import hero4 from '../images/hero-4.jpg'
 import hero5 from '../images/hero-5.jpg'
 
-const ReviewCarouselContainer = styled.div`
+const ReviewCarouselContainer = styled.section`
   display: flex;
   flex-direction: column;
   background-image: linear-gradient(
     rgba(0,0,0,0.4),
     rgba(0,0,0,0.4)),
      url(${reviewWall});
+  height: 100vh;
 `
 
 const SwiperContainer = styled.div`
@@ -45,7 +46,7 @@ const ReviewHeader = styled.h1`
   letter-spacing: 5px;
   user-select: none;
   color: ${colorWhite};
-  font-size: 3rem;
+  font-size: 3.5rem;
   width: 40%;
   text-align: center;
   transition: all .6s;
@@ -64,7 +65,7 @@ const ReviewFooter = styled.h2`
   letter-spacing: 2px;
   user-select: none;
   color: ${colorWhite};
-  font-size: 2.2rem;
+  font-size: 3rem;
   width: 70%;
   text-align: center;
   transition: all .6s;
@@ -120,8 +121,7 @@ const ReviewCarousel = () => {
       </SwiperContainer>
 
       <ReviewFooter>
-        Come and join the big hit RPG, with over 21 million registered users and <br />
-        generating over billions of dollar in revenue!
+        Come and join the big hit RPG, with over 21 million registered users and generating over billions of dollars in revenue!
       </ReviewFooter>
     </ReviewCarouselContainer>
   )
