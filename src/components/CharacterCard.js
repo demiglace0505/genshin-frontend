@@ -11,6 +11,7 @@ const Card = styled.div`
   align-items: center;
   cursor: pointer;
   background-color: orange;
+  width: 200px;
 
   border-radius: 10px;
   border: 2px solid palevioletred;
