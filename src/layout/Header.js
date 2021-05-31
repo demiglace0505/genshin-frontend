@@ -4,6 +4,7 @@ import { backgroundDark } from '../theme/colors'
 import logo from '../images/logo.png'
 
 const HeaderContainer = styled.div`
+  scroll-snap-align: start;
   display: flex;
   justify-content: center;
   align-items: center;

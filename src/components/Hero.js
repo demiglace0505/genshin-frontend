@@ -6,6 +6,7 @@ import { colorWhite} from '../theme/colors.js'
 import {moveInBottom} from '../theme/animations.js'
 
 const HeroContainer = styled.header`
+  scroll-snap-align: none;
   display: flex;
   align-items: center;
   justify-content: center;

@@ -14,7 +14,7 @@ import { reviews } from '../data/Reviews.js'
 import Review from './Review'
 
 import { colorWhite } from '../theme/colors.js'
-import {moveInBottom} from '../theme/animations.js'
+import { moveInBottom } from '../theme/animations.js'
 import reviewWall from '../images/review-wall.jpg'
 import hero1 from '../images/hero-1.jpg'
 import hero2 from '../images/hero-2.jpg'
@@ -23,16 +23,21 @@ import hero4 from '../images/hero-4.jpg'
 import hero5 from '../images/hero-5.jpg'
 
 const ReviewCarouselContainer = styled.section`
+  scroll-snap-align: start;
   display: flex;
   flex-direction: column;
   background-image: linear-gradient(
     rgba(0,0,0,0.4),
     rgba(0,0,0,0.4)),
      url(${reviewWall});
+  background-size: cover;
   height: 100vh;
+  width: 100vw;
+  scroll-snap-type: y mandatory;
 `
 
 const SwiperContainer = styled.div`
+  scroll-snap-align: initial;
   margin: 0 auto;
   width: 100%;
 `

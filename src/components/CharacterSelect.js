@@ -8,6 +8,7 @@ import { initializeCharacters } from '../reducers/characterReducer'
 
 import hero5 from '../images/hero-5.jpg'
 
+
 const CharactersContainer = styled.section`
   grid-column: characterCards-start;
   background-size: cover;
@@ -31,21 +32,23 @@ const CharacterSelectorContainer = styled.div`
 
 const CharacterHeading = styled.h1`
   @import url('https://fonts.googleapis.com/css2?family=DM+Serif+Display&display=swap');
+  align-self: center;
+  margin-top: 2.5rem;
   font-family: 'DM Serif Display', serif;
   font-weight: bold;
   letter-spacing: 4px;
   user-select: none;
   color: #fff;
-  font-size: 3rem;
+  font-size: 2.6rem;
   width: 80%;
   text-align: center;
-
 `
 
 const SearchbarContainer = styled.div`
-  background-color: green;
   margin: 3rem auto;
-  padding: 2rem;
+  /* display: flex;
+  align-items: center;
+  justify-content: center; */
 `
 
 const CharacterSelect = () => {
@@ -64,7 +67,7 @@ const CharacterSelect = () => {
   return (
     <CharactersContainer>
         <CharacterHeading>
-          Meet the unique, lovable characters from this world
+          Take on an epic journey together with Teyvat's lovable characters!
         </CharacterHeading>
         <SearchbarContainer>
           <SearchBar />

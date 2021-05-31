@@ -1,6 +1,7 @@
 import styled from 'styled-components'
 
 const FooterContainer = styled.section`
+  scroll-snap-align: end;
   background: #eee;
   padding: 4rem;
 `

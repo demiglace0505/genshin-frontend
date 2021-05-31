@@ -4,9 +4,22 @@ import styled from 'styled-components'
 
 import { searchChange } from '../reducers/characterSearchReducer.js'
 
+import {accent, backgroundPaper} from '../theme/colors.js'
+
 const InputBox = styled.input`
-  background-color: red;
   width: 90%;
+  background-color: ${backgroundPaper};
+  border: none;
+  border-radius: 4px;
+  padding: .7rem 2rem;
+  margin: 0 auto;
+  transition: all .2s;
+
+  &:focus {
+      outline: none;
+      width: 100%;
+      background-color: ${accent};
+    }
 `
 
 const SearchBar = () => {
@@ -21,7 +34,7 @@ const SearchBar = () => {
 
   return (
     <div>
-      <InputBox onChange={handleInputChange}/>
+      <InputBox placeholder="Find Character" type="text" onChange={handleInputChange}/>
     </div>
   )
 }

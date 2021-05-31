@@ -1,6 +1,6 @@
 import styled from 'styled-components'
 
-const AppContaner = styled.div`
+const AppContainer = styled.div`
   /* display: grid; */
   /* grid-template-rows: [header-start] 10vh 
                       [header-end hero-start] min-content
@@ -11,7 +11,7 @@ const AppContaner = styled.div`
                       [footer-end] 60rem */
   display: flex;
   flex-direction: column;
-
+  scroll-snap-type: y mandatory;
 `
 
-export default AppContaner
+export default AppContainer

@@ -7,6 +7,7 @@ import CharacterSelect from './CharacterSelect.js'
 
 
 const CharacterSectionContainer = styled.section`
+  scroll-snap-align: center;
   height: 100vh;
   display: grid;
   grid-template-columns: 
