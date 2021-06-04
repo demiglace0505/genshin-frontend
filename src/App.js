@@ -1,5 +1,4 @@
-import React, { useRef } from 'react'
-import useScrollSnap from 'react-use-scroll-snap'
+import React from 'react'
 
 
 import { GlobalStyle } from './theme/globalStyle.js'
