@@ -1,8 +1,12 @@
-import React from 'react'
+import React, { useEffect } from 'react'
+import { useDispatch } from 'react-redux'
 import styled from 'styled-components'
+
+import { getCharacter } from '../reducers/characterDetailReducer.js'
 
 import { URI } from '../config.js'
 import { backgroundPaper } from '../theme/colors.js'
+
 
 const CharacterDetailsContainer = styled.div`
   background-color: ${backgroundPaper};
@@ -33,11 +37,14 @@ const CharacterPortrait = styled.img`
 `
 
 const CharacterDetails = () => {
-
+  const dispatch = useDispatch()
+  useEffect(() => {
+    dispatch(getCharacter('traveler-anemo'))
+  }, )
 
   return (
     <CharacterDetailsContainer>
-        <CharacterPortrait src={`${URI}/characters/keqing/portrait`} />
+      <CharacterPortrait src={`${URI}/characters/hu-tao/portrait`} />
       <div>1</div>
       <div>1</div>
       <div>1</div>

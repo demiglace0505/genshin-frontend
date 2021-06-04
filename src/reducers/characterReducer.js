@@ -19,4 +19,6 @@ export const initializeCharacters = () => {
   }
 }
 
+
+
 export default characterReducer

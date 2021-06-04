@@ -20,9 +20,7 @@ const CharacterSection = () => {
     <CharacterSectionContainer>
       <CharacterSelect />
 
-      <CharacterDetails>
-        hello
-      </CharacterDetails>
+      <CharacterDetails />
     </CharacterSectionContainer>
   )
 }

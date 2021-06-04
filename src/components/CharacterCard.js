@@ -46,9 +46,12 @@ const CharacterName = styled.p`
 `
 
 const CharacterCard = (props) => {
-  console.log('Character')
+  const cardSelect = (event) => {
+    event.preventDefault()
+  }
+
   return (
-    <Card>
+    <Card onClick={cardSelect} >
       <CharacterIcon alt={`${props.charName}`} src={`${URI}/characters/${props.charName}/icon`} />
       <CharacterName>
         {props.charName}
