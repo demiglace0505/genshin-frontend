@@ -1,9 +1,12 @@
 import React from 'react'
-import styled, { keyframes } from 'styled-components'
+import {useDispatch} from "react-redux";
+import styled from 'styled-components'
 
-import { URI } from '../config.js'
-import { fadeIn } from '../theme/animations'
+import {URI} from '../config.js'
+import {fadeIn} from '../theme/animations.js'
 
+import {getCharacter} from '../reducers/characterDetailReducer.js'
+import {setCharacterURL} from '../reducers/characterSearchReducer.js'
 
 const Card = styled.div`
   display: flex;
@@ -46,13 +49,15 @@ const CharacterName = styled.p`
 `
 
 const CharacterCard = (props) => {
+  const dispatch = useDispatch()
   const cardSelect = (event) => {
     event.preventDefault()
+    dispatch(getCharacter(props.charName))
   }
 
   return (
-    <Card onClick={cardSelect} >
-      <CharacterIcon alt={`${props.charName}`} src={`${URI}/characters/${props.charName}/icon`} />
+    <Card onClick={cardSelect}>
+      <CharacterIcon alt={`${props.charName}`} src={`${URI}/characters/${props.charName}/icon`}/>
       <CharacterName>
         {props.charName}
       </CharacterName>

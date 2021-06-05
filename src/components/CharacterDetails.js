@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react'
-import { useDispatch } from 'react-redux'
+import { useDispatch, useSelector } from 'react-redux'
 import styled from 'styled-components'
 
 import { getCharacter } from '../reducers/characterDetailReducer.js'
@@ -10,7 +10,7 @@ import { backgroundPaper } from '../theme/colors.js'
 
 const CharacterDetailsContainer = styled.div`
   background-color: ${backgroundPaper};
-  padding: 1rem;
+  padding: 2rem;
 
   display: grid;
   grid-gap: .5rem;
@@ -36,19 +36,38 @@ const CharacterPortrait = styled.img`
   align-self: center;
 `
 
+const CharacterNameText = styled.h1`
+  grid-area: box-1;
+`
+
+const CharacterConstellationText = styled.h3`
+  grid-area: box-2
+
+`
+
+const CharacterDescriptionText = styled.p`
+  grid-area: box-3
+`
+
 const CharacterDetails = () => {
   const dispatch = useDispatch()
   useEffect(() => {
     dispatch(getCharacter('traveler-anemo'))
-  }, )
-
+  }, [dispatch])
+  const currentCharacter = useSelector(state => state.characterDetail)
+  console.log(currentCharacter)
   return (
     <CharacterDetailsContainer>
-      <CharacterPortrait src={`${URI}/characters/hu-tao/portrait`} />
-      <div>1</div>
-      <div>1</div>
-      <div>1</div>
-      <div>1</div>
+      <CharacterPortrait src={`${URI}/characters/${currentCharacter.charCode}/portrait`} />
+      <CharacterNameText>
+        {currentCharacter.name}
+      </CharacterNameText>
+      <CharacterConstellationText>
+        {currentCharacter.constellation}
+      </CharacterConstellationText>
+      <CharacterDescriptionText>
+        {currentCharacter.description}
+      </CharacterDescriptionText>
     </CharacterDetailsContainer>
   )
 }

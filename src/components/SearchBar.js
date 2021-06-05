@@ -24,7 +24,7 @@ const InputBox = styled.input`
 
 const SearchBar = () => {
   const dispatch = useDispatch()
-  const searchString = useSelector(state => state.search)
+  // const searchString = useSelector(state => state.search)
 
   const handleInputChange = (event) => {
     event.preventDefault()

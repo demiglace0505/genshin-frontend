@@ -10,9 +10,13 @@ const characterDetailReducer = (state='', action) => {
 }
 
 export const getCharacter = (charName) => {
-  console.log(charName, 'reducer')
+  // console.log(charName, 'reducer')
   return async (dispatch) => {
-    const character = await characterService.getCharacter(charName)
+    const res = await characterService.getCharacter(charName)
+    const character = {
+      ...res,
+      'charCode': charName
+    }
     dispatch({
       type: "GET_CHARACTER",
       payload: character
